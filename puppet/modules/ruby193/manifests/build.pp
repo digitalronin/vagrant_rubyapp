@@ -11,6 +11,6 @@ class ruby193::build {
     cwd     => "/root",
     timeout => 0,
     creates => "/usr/local/bin/ruby",
-    require => File["/root/build-ruby.sh"]
+    require => [Package["build-essential"], File["/root/build-ruby.sh"]]
   }
 }
