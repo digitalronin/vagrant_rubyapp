@@ -4,6 +4,7 @@ import "appuser"
 import "ruby193"
 import "passenger"
 import "nginx"
+import "mongodb"
 
 # Fix for "Could not find group puppet" error.
 group { "puppet": ensure => "present" }
@@ -16,3 +17,4 @@ include admin::build_dependencies
 include ruby193::build
 include passenger::install
 include nginx::setup
+include mongodb::install
