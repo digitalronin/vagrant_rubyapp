@@ -3,6 +3,7 @@ import "admin"
 import "appuser"
 import "ruby193"
 import "passenger"
+import "nginx"
 
 # Fix for "Could not find group puppet" error.
 group { "puppet": ensure => "present" }
@@ -14,3 +15,4 @@ include appuser
 include admin::build_dependencies
 include ruby193::build
 include passenger::install
+include nginx::setup
