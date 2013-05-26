@@ -10,4 +10,8 @@ class nginx::setup {
     command => "/usr/sbin/update-rc.d -f nginx defaults",
     creates => "/etc/rc2.d/S20nginx"
   }
+
+  file { "/etc/logrotate.d/nginx":
+    source => "puppet:///modules/nginx/nginx.logrotate",
+  }
 }
