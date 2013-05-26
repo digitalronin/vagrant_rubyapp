@@ -13,4 +13,10 @@ class ruby193::build {
     creates => "/usr/local/bin/ruby",
     require => [Package["build-essential"], File["/root/build-ruby.sh"]]
   }
+
+  package { "bundler":
+    provider => gem,
+    ensure   => installed,
+    require  => Exec["build-ruby"]
+  }
 }
