@@ -1,7 +1,7 @@
-vagrant_ruby193
+vagrant_rubyapp
 ===============
 
-Vagrantfile and puppet recipes to create an Ubuntu 12.04 VM with ruby 1.9.3
+Vagrantfile and puppet recipes to create an Ubuntu 12.04 VM with ruby 1.9.3, nginx, passenger and mongodb
 
 Pre-requisites
 --------------
@@ -15,9 +15,9 @@ Pre-requisites
 Installation
 ------------
 
-    $ git clone git://github.com/digitalronin/vagrant_ruby193.git
+    $ git clone git://github.com/digitalronin/vagrant_rubyapp.git
 
-    $ cd vagrant_ruby193
+    $ cd vagrant_rubyapp
 
     $ vagrant up   # <--- setup the vm and install all software via puppet
 
@@ -27,7 +27,7 @@ Installation
 
     $ vagrant destroy # <--- destroy the vm
 
-Any files you create in the vagrant_ruby193 directory will be
+Any files you create in the vagrant_rubyapp directory will be
 accessible on the vm in the /vagrant directory.
 
 Replacing the public key
