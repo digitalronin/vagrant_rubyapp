@@ -8,7 +8,8 @@ class nginx::setup {
 
   exec { "create-nginx-service":
     command => "/usr/sbin/update-rc.d -f nginx defaults",
-    creates => "/etc/rc2.d/S20nginx"
+    creates => "/etc/rc2.d/S20nginx",
+    require => Exec["install-nginx-module"]
   }
 
   file { "/etc/logrotate.d/nginx":
@@ -19,16 +20,18 @@ class nginx::setup {
       "/opt/nginx/conf/sites-available",
       "/opt/nginx/conf/sites-enabled"
     ]:
-    ensure => directory,
-    owner  => "root",
-    group  => "root"
+    ensure  => directory,
+    owner   => "root",
+    group   => "root",
+    require => Exec["install-nginx-module"]
   }
 
   file { "/opt/nginx/conf/nginx.conf":
-    source => "puppet:///modules/nginx/nginx.conf",
-    owner  => "root",
-    group  => "root",
-    mode   => 644
+    source  => "puppet:///modules/nginx/nginx.conf",
+    owner   => "root",
+    group   => "root",
+    mode    => 644,
+    require => Exec["install-nginx-module"]
   }
 
 }

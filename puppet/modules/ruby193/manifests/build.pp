@@ -1,9 +1,14 @@
 class ruby193::build {
+  package { "libyaml-ruby":
+    ensure => installed
+  }
+
   file { "/root/build-ruby.sh":
-    source => "puppet:///modules/ruby193/build-ruby.sh",
-    owner  => "root",
-    group  => "root",
-    mode   => 755
+    source  => "puppet:///modules/ruby193/build-ruby.sh",
+    owner   => "root",
+    group   => "root",
+    mode    => 755,
+    require => Package["libyaml-ruby"]
   }
 
   exec { "build-ruby":
